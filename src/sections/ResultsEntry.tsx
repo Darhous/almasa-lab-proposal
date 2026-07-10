@@ -99,8 +99,8 @@ export function ResultsEntry() {
                           {row.value}
                         </span>
                       </td>
-                      <td className="py-3 text-faint">{row.unit}</td>
-                      <td className="py-3 text-faint">{row.range}</td>
+                      <td dir="ltr" className="py-3 text-end text-faint">{row.unit}</td>
+                      <td dir="ltr" className="py-3 text-end text-faint">{row.range}</td>
                       <td className="py-3">
                         <Badge tone={STATUS_TONE[row.status]}>{row.status}</Badge>
                       </td>
