@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
 export function Reveal({
@@ -15,6 +15,13 @@ export function Reveal({
   as?: "div" | "li";
 }) {
   const Component = motion[as];
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion) {
+    const Static = as;
+    return <Static className={className}>{children}</Static>;
+  }
+
   return (
     <Component
       initial={{ opacity: 0, y }}

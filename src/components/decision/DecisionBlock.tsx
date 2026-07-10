@@ -64,13 +64,19 @@ export function DecisionBlock({ sectionId }: { sectionId: string }) {
                 setSectionDecision(sectionId, optionStatus);
                 flashSaved();
               }}
-              className={`flex flex-col items-center gap-2 rounded-2xl border px-3 py-4 text-center text-sm font-semibold transition-all ${
+              className={`relative flex flex-col items-center gap-2 rounded-2xl border px-3 py-4 text-center text-sm font-semibold transition-all ${
                 active
-                  ? TONE[optionStatus]
-                  : "border-border bg-surface text-muted hover:border-brand-500/40 hover:text-text"
+                  ? `border-2 ${TONE[optionStatus]}`
+                  : "border border-border bg-surface text-muted hover:border-brand-500/40 hover:text-text"
               }`}
               aria-pressed={active}
             >
+              {active && (
+                <CheckCircle2
+                  className="absolute -top-2 -end-2 h-4 w-4 rounded-full bg-ink"
+                  aria-hidden
+                />
+              )}
               <Icon className="h-5 w-5" aria-hidden />
               {DECISION_LABELS[optionStatus]}
             </button>

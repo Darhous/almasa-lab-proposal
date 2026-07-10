@@ -14,6 +14,16 @@ import { DataMigration } from "./sections/DataMigration";
 import { PatientAccounts } from "./sections/PatientAccounts";
 import { WhatsApp } from "./sections/WhatsApp";
 import { AI } from "./sections/AI";
+import { AdminDashboard } from "./sections/AdminDashboard";
+import { Permissions } from "./sections/Permissions";
+import { Security } from "./sections/Security";
+import { Reports } from "./sections/Reports";
+import { DesignDirections } from "./sections/DesignDirections";
+import { BeforeAfter } from "./sections/BeforeAfter";
+import { Roadmap } from "./sections/Roadmap";
+import { FAQ } from "./sections/FAQ";
+import { FinalCTA } from "./sections/FinalCTA";
+import { MasterDecisionLog } from "./sections/MasterDecisionLog";
 
 function App() {
   return (
@@ -34,6 +44,16 @@ function App() {
         <PatientAccounts />
         <WhatsApp />
         <AI />
+        <AdminDashboard />
+        <Permissions />
+        <Security />
+        <Reports />
+        <DesignDirections />
+        <BeforeAfter />
+        <Roadmap />
+        <FAQ />
+        <FinalCTA />
+        <MasterDecisionLog />
       </main>
       <Footer />
     </div>

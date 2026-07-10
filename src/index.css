@@ -134,9 +134,20 @@ body {
     break-inside: avoid;
   }
   * {
+    background: transparent !important;
+    background-image: none !important;
+    color: #111 !important;
+    border-color: #d4d4d8 !important;
     box-shadow: none !important;
     text-shadow: none !important;
     animation: none !important;
     transition: none !important;
+  }
+  svg[aria-hidden] path[fill^="url"],
+  svg[aria-hidden] path[fill="currentColor"] {
+    color: #111;
+  }
+  textarea {
+    border: 1px solid #d4d4d8 !important;
   }
 }
