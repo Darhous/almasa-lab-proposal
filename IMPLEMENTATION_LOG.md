@@ -28,3 +28,18 @@
 - `npm run build` ناجح. تم فحص النتيجة بصريًا عبر Playwright (سطح المكتب + موبايل 390px) — لا
   تراكب أفقي، RTL صحيح، الخط العربي يظهر بشكل سليم.
 - Commit + push للفرع `claude/diamond-lab-proposal-site-i8mi8t`.
+
+## 2026-07-10 — المرحلة 3: الأقسام 1–6 (ملخص تنفيذي → بوابة المريض)
+- مكونات UI إضافية: `Tabs`, `Accordion`, `Badge`, `Card`, `Timeline`.
+- مكونات Mockup: `PhoneFrame`, `WindowFrame`, `ChatMockup` (واتساب)، `BarcodeMockup`, `MiniChart`
+  (رسم بياني SVG بسيط لمقارنة النتائج عبر الزمن).
+- أقسام مكتملة: `ExecutiveSummary`, `Challenges` (7 تحديات)، `Solution` (تصور hub-and-spoke حول
+  Backend موحّد + PostgreSQL)، `PatientJourney` (Timeline بـ 7 مراحل)، `ResultsLookup` (Tabs:
+  باركود + تحقق إضافي / حساب مريض كامل)، `PatientPortal` (8 ميزات + مثال بوابة على هاتف).
+- كل قسم يحتوي `DecisionBlock` مربوط بمعرّف القسم الصحيح من `content/sections.ts`، ويعرض
+  `SuggestionsBlock` تلقائيًا إن وُجدت اقتراحات مرتبطة به في `content/suggestions.ts`.
+- تم التحقق بصريًا (Playwright, viewport 1440px) من: ظهور رقم القسم والعنوان الفرعي بشكل صحيح،
+  عمل الـ Timeline والـ Tabs ومكوّن قرار العميل والاقتراحات الإضافية كما هو مخطط، بدون أخطاء
+  console. لوحظ أن screenshot عنصر فردي أثناء حركة Framer Motion قد يبدو فارغًا جزئيًا — تم التأكد
+  عبر لقطة صفحة كاملة أن هذا مجرد قيد على أداة اللقطة نفسها وليس خللًا في الموقع.
+- `npm run build` ناجح (2202 وحدة). Commit + push.
