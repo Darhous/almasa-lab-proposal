@@ -91,3 +91,18 @@
   قسم — لا يوجد أي تراكب أفقي في أي عرض. تم اختبار سيناريو كامل: تغيير قرار قسم → كتابة ملاحظة →
   إعادة تحميل الصفحة → التأكد من بقاء القرار والملاحظة (localStorage) → تصدير JSON بنجاح.
 - `npm run build` و`npm run lint` (oxlint) نظيفان تمامًا. Commit + push.
+
+## 2026-07-10 — المرحلة 6: نشر GitHub Pages
+- إضافة `.github/workflows/deploy.yml`: يعمل عند push إلى `main` (أو تشغيل يدوي)، يثبّت الاعتماديات،
+  يشغّل `lint` ثم `build`، ثم ينشر مجلد `dist` عبر `actions/upload-pages-artifact` +
+  `actions/deploy-pages` الرسميين من GitHub.
+- إضافة `public/.nojekyll` لمنع معالجة Jekyll لملفات المخرجات.
+- التحقق من أن `vite.config.ts` يضبط `base: '/almasa-lab-proposal/'` بشكل صحيح — تم التأكد من
+  `dist/index.html` الناتج أن كل الروابط (favicon, manifest, JS, CSS) تُبنى تحت هذا المسار الفرعي
+  بشكل صحيح.
+- بما أن الموقع صفحة واحدة بالكامل بدون أي client-side routing (لا React Router، فقط روابط
+  `#section-id` داخل نفس الصفحة)، فإن إعادة تحميل الصفحة (F5) في أي وقت تُعيد تحميل نفس
+  `index.html` الصحيح دون أي احتمال 404 — لا حاجة لحيلة `404.html` الخاصة بتطبيقات SPA متعددة المسارات.
+- **ملاحظة مهمة للمستخدم**: تفعيل GitHub Pages نفسه (Settings → Pages → Source: GitHub Actions)
+  هو إعداد على مستوى الريبو لا يمكن ضبطه من الكود أو من خلال أدوات هذه الجلسة — يحتاج تفعيلًا يدويًا
+  لمرة واحدة من مالك الريبو إن لم يكن مفعّلًا بالفعل.
